@@ -1,0 +1,6 @@
+const config = {
+  token: 'token goes here',
+  prefix: '$',
+};
+
+module.exports = config;
