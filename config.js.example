@@ -1,6 +1,7 @@
 const config = {
   token: 'token goes here',
   prefix: '$',
+  mongoURI: 'uri goes here'
 };
 
 module.exports = config;

@@ -1,10 +1,13 @@
 const Discord = require('discord.js');
 const Enmap = require('enmap');
 const fs = require('fs');
+const mongoose = require('mongoose');
+const config = require('./config.js');
+require('./models/raid');
+
+mongoose.connect(config.mongoURI);
 
 const client = new Discord.Client();
-const config = require('./config.js');
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
 client.config = config;
 
 fs.readdir('./events/', (err, files) => {
