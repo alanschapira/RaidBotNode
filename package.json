@@ -4,9 +4,12 @@
   "description": "A discord bot for organising raids in Pokemon Go",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "lint": "eslint",
-    "test": "jest"
+    "start": "node src/index.js",
+    "lint": "eslint --ext js,jsx,ts,tsx --max-warnings 0 -f codeframe --cache --color src",
+    "test": "jest",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different",
+    "prettier": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\""
   },
   "author": "Alan Schapira",
   "license": "ISC",
@@ -19,7 +22,9 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.13.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.2",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1"
   }
 }

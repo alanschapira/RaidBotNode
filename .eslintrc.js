@@ -3,9 +3,9 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-    jest: true
+    jest: true,
   },
-  extends: ["eslint:recommended", "google"],
+  extends: ['eslint:recommended', 'google', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -14,10 +14,10 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    "linebreak-style": ["error", "windows"],
-    "indent": ["error", 2, { "MemberExpression": "off" }],
-    "no-console": 0,
-    "arrow-parens": 0,
-    "max-len": [2, { "code": 120, "tabWidth": 2, "ignoreUrls": true }],
+    'linebreak-style': ['error', 'windows'],
+    indent: ['error', 2, {MemberExpression: 'off'}],
+    'no-console': 0,
+    'arrow-parens': 0,
+    'max-len': [2, {code: 120, tabWidth: 2, ignoreUrls: true}],
   },
 };

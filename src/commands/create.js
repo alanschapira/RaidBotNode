@@ -7,25 +7,19 @@ const Raid = mongoose.model('raid');
 
 exports.run = (client, message, args) => {
   const [raidName] = args;
-  Raid.findOne({name: raidName})
-    .then(existingRaid => {
-      if (!existingRaid) {
-        const raid = createRaidFromArgs(args, message.author);
-        const errorMessage = validatedRaid(raid);
-        if (errorMessage) {
-          message.channel.send(errorMessage).catch(console.error);
-        } else {
-          new Raid(raid)
-            .save()
-            .then(savedRaid => {
-              message.channel.send(`${savedRaid.name} has been created`);
-            })
-            .catch(console.error);
-        }
+  Raid.findOne({name: raidName}).then(existingRaid => {
+    if (!existingRaid) {
+      const raid = createRaidFromArgs(args, message.author);
+      const errorMessage = validatedRaid(raid);
+      if (errorMessage) {
+        message.channel.send(errorMessage).catch(console.error);
       } else {
-        message.channel.send(`${raidName} already exists`).catch(console.error);
+        addRaidToDatabase(raid, message);
       }
-    });
+    } else {
+      message.channel.send(`${raidName} already exists`).catch(console.error);
+    }
+  });
 };
 
 const createRaidFromArgs = (args, author) => {
@@ -54,4 +48,13 @@ const validatedRaid = raid => {
     return 'Could not understand that pokemon';
   }
   return '';
+};
+
+const addRaidToDatabase = (raid, message) => {
+  new Raid(raid)
+    .save()
+    .then(savedRaid => {
+      message.channel.send(`${savedRaid.name} has been created`);
+    })
+    .catch(console.error);
 };
