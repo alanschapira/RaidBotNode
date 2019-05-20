@@ -81,7 +81,7 @@ module.exports = {
   80: 'slowbro',
   81: 'magnemite',
   82: 'magneton',
-  83: "farfetch'd",
+  83: 'farfetch\'d',
   84: 'doduo',
   85: 'dodrio',
   86: 'seel',

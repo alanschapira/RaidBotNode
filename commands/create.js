@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-const { getPokemonIdByAny } = require('../utils/pokemonUtils');
+const {getPokemonIdByAny} = require('../utils/pokemonUtils');
 
 const Raid = mongoose.model('raid');
 
 exports.run = (client, message, args) => {
   const [raidName] = args;
-  Raid.findOne({ name: raidName })
+  Raid.findOne({name: raidName})
     .then(existingRaid => {
       if (!existingRaid) {
         const raid = createRaidFromArgs(args, message.author);
@@ -33,7 +33,7 @@ const createRaidFromArgs = (args, author) => {
   if (raidTime) {
     return createFullRaid(args, author);
   }
-  return { name: raidName, user: { id: author.id, username: author.username } };
+  return {name: raidName, user: {id: author.id, username: author.username}};
 };
 
 const createFullRaid = (args, author) => {
@@ -41,8 +41,8 @@ const createFullRaid = (args, author) => {
   const formatedTime = raidTime.replace(/,|;|\./g, ':');
   const time = moment(formatedTime, 'H:mm').toISOString();
   const pokemonId = getPokemonIdByAny(pokemon);
-  const user = { id: author.id, username: author.username };
-  return { name, time, pokemonId, guests, user };
+  const user = {id: author.id, username: author.username};
+  return {name, time, pokemonId, guests, user};
 };
 
 const validatedRaid = raid => {

@@ -1,4 +1,4 @@
-const { getPokemonIdByName, getPokemonNameById, getPokemonIdByAny } = require('./pokemonUtils');
+const {getPokemonIdByName, getPokemonNameById, getPokemonIdByAny} = require('./pokemonUtils');
 
 describe('getPokemonNameById', () => {
   it('should return Pikachu for 25', () => {

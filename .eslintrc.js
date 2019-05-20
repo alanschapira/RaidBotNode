@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     jest: true
   },
-  extends: 'airbnb-base',
+  extends: ["eslint:recommended", "google"],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -15,13 +15,9 @@ module.exports = {
   },
   rules: {
     "linebreak-style": ["error", "windows"],
+    "indent": ["error", 2, { "MemberExpression": "off" }],
     "no-console": 0,
     "arrow-parens": 0,
-    "consistent-return": 0,
-    "global-require": 0,
-    "import/no-dynamic-require": 0,
-    "max-len": [2, { "code": 120 }],
-    "object-curly-newline": 0,
-    "no-use-before-define": 0
+    "max-len": [2, { "code": 120, "tabWidth": 2, "ignoreUrls": true }],
   },
 };

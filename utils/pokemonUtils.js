@@ -24,4 +24,4 @@ const getPokemonIdByName = (name) => {
   return Number(pokemonId);
 };
 
-module.exports = { getPokemonNameById, getPokemonIdByName, getPokemonIdByAny };
+module.exports = {getPokemonNameById, getPokemonIdByName, getPokemonIdByAny};
