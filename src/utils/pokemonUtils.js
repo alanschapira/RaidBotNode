@@ -20,7 +20,7 @@ const getPokemonNameById = id => {
 const getPokemonIdByName = name => {
   const lowerCaseName = name.toString().toLowerCase();
   const pokemonId = Object.keys(pokemon).find(key => pokemon[key] === lowerCaseName);
-  return Number(pokemonId);
+  return Number(pokemonId) || 0;
 };
 
 module.exports = {getPokemonNameById, getPokemonIdByName, getPokemonIdByAny};

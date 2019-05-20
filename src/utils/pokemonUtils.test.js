@@ -26,7 +26,7 @@ describe('getPokemonIdByName', () => {
     expect(getPokemonIdByName('pIKaCHu')).toBe(25);
   });
   it('should return NaN for zzzzz', () => {
-    expect(getPokemonIdByName('zzzzz')).toBe(NaN);
+    expect(getPokemonIdByName('zzzzz')).toBe(0);
   });
 });
 
@@ -35,12 +35,12 @@ describe('getPokemonIdByAny', () => {
     expect(getPokemonIdByAny(25)).toBe(25);
   });
   it('should return NaN for 9999', () => {
-    expect(getPokemonIdByAny(9999)).toBe(NaN);
+    expect(getPokemonIdByAny(9999)).toBe(0);
   });
   it('should return 25 for Pikachu', () => {
     expect(getPokemonIdByAny('pikachu')).toBe(25);
   });
   it('should return NaN for zzzzz', () => {
-    expect(getPokemonIdByAny('zzzzz')).toBe(NaN);
+    expect(getPokemonIdByAny('zzzzz')).toBe(0);
   });
 });

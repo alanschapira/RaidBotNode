@@ -40,11 +40,11 @@ const createFullRaid = (args, author) => {
 };
 
 const validatedRaid = raid => {
-  if (!raid.time) {
+  if (raid.time === null) {
     return 'Could not understand that time';
   }
 
-  if (!raid.pokemonId) {
+  if (raid.pokemonId === 0) {
     return 'Could not understand that pokemon';
   }
   return '';
